@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1044808981300",
+    "project_id": "thws-announcements",
+    "storage_bucket": "thws-announcements.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044808981300:android:d108d74b9d27872bf66361",
+        "android_client_info": {
+          "package_name": "com.example.twhs_announcements"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044808981300-s134k5cieffhjcr6sk58qd9ga4nk87ht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlt2tTgikO-HpK2MQ7QmiO-7kf-7gbivI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044808981300-s134k5cieffhjcr6sk58qd9ga4nk87ht.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1044808981300-r2k9dj4f8ge1kd2rd4uc7mt75tekinol.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.twhsAnnouncements"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
