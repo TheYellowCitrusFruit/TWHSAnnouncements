@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twhs_announcements/server_functions.dart';
 import 'package:twhs_announcements/entities/announcement_info.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // TODO re-implement this properly with dataset containing all info in mind
 /*
@@ -85,7 +86,10 @@ class _MyHomePageState extends State<HomePage> {
             IconButton(
               icon: const Icon(Icons.settings), // TODO Put custom TWHS pastabots logo instead
               tooltip: "Settings OR TWHS Pastabots website",
-              onPressed: (){}, 
+              onPressed: () async{ 
+                await launchUrl(Uri.parse("https://github.com/TheYellowCitrusFruit/AppPrivacyPolicy"),
+                mode:LaunchMode.externalApplication); 
+              }, 
             )
           ]
         ),

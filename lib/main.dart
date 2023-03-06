@@ -25,12 +25,18 @@ Future<void> main() async {
 
 
   final AnnouncementInfo announcementInfo = AnnouncementInfo.n(
-    date:DateTime.now().millisecondsSinceEpoch - 86400000,
+    date:DateTime.now().millisecondsSinceEpoch,
     num_cards: 1,
     cards: <AnnouncementCardInfo>[AnnouncementCardInfo.n(
-      title: "title",
-      subtitle: "subtitle",
-      body: "body",
+      title: "Example Announcements (expanded)",
+      subtitle: "Room XYZ @hh:mm",
+      body: "Room XYZ @hh:mm \nThere will be a description of the announcement here. \nI guess this is all of the information I have for this. \nClick card again to collapse body.",
+      time: "5 o clock" //TODO
+    ),
+    AnnouncementCardInfo.n(
+      title: "Example Announcements (collapsed)",
+      subtitle: "Room XYZ @hh:mm - Click to expand and view body",
+      body: "There will be a description of the announcement here. I guess this is all of the information I have for this. \nClick card again to collapse body.",
       time: "5 o clock" //TODO
     ),
     ]
@@ -48,18 +54,78 @@ Future<void> main() async {
   );
   final AnnouncementInfo announcementInfo3 = AnnouncementInfo.n(
     date:(await NTP.now()).millisecondsSinceEpoch,
-    num_cards: 2,
+    num_cards: 12,
     cards: <AnnouncementCardInfo>[AnnouncementCardInfo.n(
-      title: "If you see this it worked",
-      subtitle: "subtitle 3",
-      body: "AHA Works",
+      title: "Welcome to TWHS Announcements DAY 5",
+      subtitle: "This is the fifth test",
+      body: "You have opened the body \ndoes it look nice \nAny Feedback?",
       time: "7 o clock" //TODO
     ),
     AnnouncementCardInfo.n(
-      title: "part 2",
-      subtitle: "subtitle 3",
-      body: "body 3",
+      title: "The color scheme has yet to be set in stone",
+      subtitle: "Do you have any ideas",
+      body: "Regarding :\nCard color\nText color (body, title, etc.)",
       time: "7 o clock" //TODO
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are the same as yesterday",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
+    ),
+    AnnouncementCardInfo.n(
+      title: "The rest of these are for testing",
+      subtitle: "Primarily scrolling testing",
+      body: "This one for a large body \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      time: "7 o clock"
     ),
     ]
   );
@@ -74,7 +140,7 @@ Future<void> main() async {
   final db = FirebaseFirestore.instance;
   final server = ServerFunctions(db:db);
 
-  //server.addDay(announcementInfo3, "day");
+  server.addDay(announcementInfo3, "day");
 
   Future<void> asyncBubble() async{
     //await service.cleanDb();
@@ -102,6 +168,7 @@ Future<void> main() async {
   }
 
   void timeCheckStuff() async{
+    service.addAnnouncement(announcementInfo);
     DateTime _myTime = await NTP.now();
     _myTime = _myTime.toLocal();
     if (DateFormat('EEEE').format(_myTime) == "Sunday" || DateFormat('EEEE').format(_myTime) == "Saturday"){
@@ -125,7 +192,7 @@ Future<void> main() async {
       }
     }
   }
-  timeCheckStuff();
+  //timeCheckStuff();
 
 
   void tzTest() async{
