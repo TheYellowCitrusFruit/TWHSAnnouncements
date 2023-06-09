@@ -23,7 +23,7 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   var announcementInfoServer;
 
-
+  /*
   final AnnouncementInfo announcementInfo = AnnouncementInfo.n(
     date:DateTime.now().millisecondsSinceEpoch,
     num_cards: 1,
@@ -129,6 +129,7 @@ Future<void> main() async {
     ),
     ]
   );
+  */
   /*
   final db = FirebaseFirestore.instance;
   final server = ServerFunctions(db:db);
@@ -140,7 +141,7 @@ Future<void> main() async {
   final db = FirebaseFirestore.instance;
   final server = ServerFunctions(db:db);
 
-  server.addDay(announcementInfo3, "day");
+  //server.addDay(announcementInfo3, "day");*/
 
   Future<void> asyncBubble() async{
     //await service.cleanDb();
@@ -168,7 +169,7 @@ Future<void> main() async {
   }
 
   void timeCheckStuff() async{
-    service.addAnnouncement(announcementInfo);
+    //service.addAnnouncement(announcementInfo);
     DateTime _myTime = await NTP.now();
     _myTime = _myTime.toLocal();
     if (DateFormat('EEEE').format(_myTime) == "Sunday" || DateFormat('EEEE').format(_myTime) == "Saturday"){
@@ -192,7 +193,7 @@ Future<void> main() async {
       }
     }
   }
-  //timeCheckStuff();
+  timeCheckStuff();
 
 
   void tzTest() async{
